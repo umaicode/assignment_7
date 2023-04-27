@@ -1,4 +1,5 @@
 //7장 클래스 상속 과제
+// partTimeStudent가 pid를 2개 가지게 되므로 virtual 사용해야한다.
 #include <iostream>
 #include <string>
 using namespace std;
@@ -95,6 +96,13 @@ int main() {
 
             break;
         case 2://2. PartTimeStudent 객체 10개 입력과 출력
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if (codings[i] > codings[j]) {
+                        swap(codings, i, j);
+                    }
+                }
+            }
 
             break;
 
