@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="상속구현과제(수정본).cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="상속구현과제.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
