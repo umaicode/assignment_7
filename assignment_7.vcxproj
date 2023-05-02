@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
-    <ProjectGuid>{0A7CCB17-A84B-498D-8938-FA420E17C8A4}</ProjectGuid>
+    <ProjectGuid>{B575CEA6-55A8-409F-BB81-E8958498D872}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -98,6 +98,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="z_test_다중상속소스실습수업.cpp" />
+    <ClCompile Include="상속구현과제(2차수정본).cpp" />
     <ClCompile Include="상속구현과제(수정본).cpp" />
     <ClCompile Include="상속구현과제.cpp" />
   </ItemGroup>
