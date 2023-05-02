@@ -1,4 +1,7 @@
 //7장 클래스 상속 과제
+// 1) dynamic_cast <> : 사용해야 한다.
+// 2) virtual : 사용해야 한다.
+// => 동적바인딩
 #include <iostream>
 #include <string>
 using namespace std;

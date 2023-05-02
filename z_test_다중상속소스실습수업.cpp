@@ -1,5 +1,8 @@
 //수업 시간에 연습 코딩 실습
 //virtual 상속시에 생성자 문제를 해결하는 것이 필요하다 
+// overloading 과 overriding 차이
+// overloading : 파라미터가 다름.
+// overriding : 함수는 같은 거를 쓰고 함수 바디가 다름. -> 함수 재정의 : 클래스 계층에서 적용. 동적바인딩을 위하여.
 #include <iostream>
 #include <string>
 using namespace std;
@@ -8,7 +11,8 @@ class Person {
 private:
     string pname;
 public:
-
+    virtual void print() { cout << pname; }
+    Person(string pname):pname(pname) {}
 
 };
 
@@ -19,7 +23,8 @@ class Employee : virtual public Person {
 private:
     string eno;
 public:
-  
+    void print() { cout << eno; }
+    Employee(string eno, string pname):Person(pname), eno(eno){}
 
 };
 ostream& operator<<(ostream& os, Employee& employee) {
@@ -30,7 +35,7 @@ class Student : virtual public Person {
 private:
     string sno;
 public:
-
+    Student(string sno, string pname):Person(pname), sno(sno){}
 
 };
 ostream& operator<<(ostream& os, Student& st) {
@@ -39,10 +44,18 @@ ostream& operator<<(ostream& os, Student& st) {
 class WorkStudent : public Student, public Employee {
     string cowork;
 public:
+    WorkStudent() {}
+    WorkStudent(string cowork, string sno, string eno, string pname) :Student(sno), Employee(eno), cowork(cowork) {}
     int operator >(WorkStudent&);
-};
-int WorkStudent::operator >(WorkStudent&) {
 
+};
+int WorkStudent::operator >(WorkStudent& ws) {
+    Student s = (Student)ws;
+    int result = this->cowork.compare(ws.cowork);
+    if (result > 0) return 1;
+    else if (result < 0) return -1;
+    else if (Student(*this) > s) return 1;
+    else return -1;
 }
 class Designer : public Employee {
     string design;
@@ -88,7 +101,17 @@ int main() {
             for (int i = 0; i < 10; i++)
                 for (int j = i + 1; j < 10; j++)
                 {
+                    // Student* s = (Student)workstudents[i];
+                    // Student* s = dynamic_cast<Student*>(workstudents[i]);
+                    // if (*workstudents[i] > *workstudents[j]) {
+                    //     swap(workstudents, i, j);
+                    // }
+                    WorkStudent* ws1 = dynamic_cast<WorkStudent*>(workstudents[i]);
+                    WorkStudent* ws2 = dynamic_cast<WorkStudent*>(workstudents[j]);
 
+                    if (*ws1 > *ws2) {
+                        swap(workstudents, i, j);
+                    }
                 }
             for (int i = 0; i < 10; i++)
             {
@@ -100,7 +123,14 @@ int main() {
                 for (int j = i + 1; j < 10; j++)
                 {
                     //designers의 정렬
+                    Designer* ws1 = dynamic_cast<Designer*>(workstudents[i]);
+                    Designer* ws2 = dynamic_cast<Designer*>(workstudents[i]);
+
+                    if(*ws1 > *ws2) {
+                        swap(designers, i, j);
+                    }
                 }
+
             for (int i = 0; i < 10; i++)
             {
                 //cout<<designers[i];
