@@ -42,7 +42,7 @@ public:
 };
 
 ostream& operator<<(ostream& os, Person& p) {
-    os << p.pid << ", " << p.pname;
+    os << p.pid << ", " << p.pname << endl;
     return os;
 }
 

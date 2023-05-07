@@ -18,7 +18,7 @@
     <ClCompile Include="z_test_다중상속소스실습수업.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="상속구현과제(2차수정본).cpp">
+    <ClCompile Include="상속구현과제%28get사용%29.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="상속구현과제(수정본).cpp">
